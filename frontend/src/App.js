@@ -1,12 +1,19 @@
 // Dependencies
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // Components, Styles, Media
-import logo from "./logo.svg";
+import Logo from "./components/Logo";
 import "./App.css";
+import Navigation from "./components/Navigation";
 
 // Pages
+import HomePage from "./pages/HomePage.js";
+import AboutPage from "./pages/AboutPage.js";
+import ContactPage from "./pages/ContactPage.js";
+import PlanTrip from "./pages/PlanTrip.js";
 
 // Render Content
 
@@ -14,10 +21,22 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <header className="App-header"></header>
+        <header className="App-header">
+          <Logo />
+          <span>Vegan Road Trip Planner</span>
+          <Navigation />
+          <Link to="/plantrip">
+            <Button>Plan a New Trip</Button>
+          </Link>
+        </header>
         <main>
           <section>
-            <Routes></Routes>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/plantrip" element={<PlanTrip />} />
+            </Routes>
           </section>
         </main>
         <footer>

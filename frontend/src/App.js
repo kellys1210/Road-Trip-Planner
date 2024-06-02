@@ -25,7 +25,7 @@ function App() {
           <Logo />
           <span>Vegan Road Trip Planner</span>
           <Navigation />
-          <Link to="/plantrip">
+          <Link to="/PlanTrip">
             <Button>Plan a New Trip</Button>
           </Link>
         </header>
@@ -35,7 +35,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
-              <Route path="/plantrip" element={<PlanTrip />} />
+              <Route path="/PlanTrip" element={<PlanTrip />} />
             </Routes>
           </section>
         </main>

@@ -1,93 +1,45 @@
-### CREATE five documents.
-POST http://localhost:3000/locations HTTP/1.1
+### CREATE a document
+POST http://localhost:5000/api/plans HTTP/1.1
 content-type: application/json
 
 {
     "destination": "Montreal",
-    "date": "2018-01-25",
-    "days": 4,
-    "reason": "Matt's Birthday Trip",
-    "travelPartner": "Matt"
+    "startDate": "2023-01-25",
+    "endDate": "2023-01-29"
 }
 
-
-### CREATE 2
-POST http://localhost:3000/locations HTTP/1.1
+### CREATE another document
+POST http://localhost:5000/api/plans HTTP/1.1
 content-type: application/json
 
 {
     "destination": "Seattle",
-    "date": "2005-06-14",
-    "days": 14,
-    "reason": "Visit Family",
-    "travelPartner": "Dad, Mom, Gina, James"
+    "startDate": "2023-02-14",
+    "endDate": "2023-02-28"
 }
 
-### CREATE 3
-POST http://localhost:3000/locations HTTP/1.1
-content-type: application/json
+### RETRIEVE all documents
+GET http://localhost:5000/api/plans HTTP/1.1
 
-{
-    "destination": "Los Angeles",
-    "date": "2022-03-15",
-    "days": 4,
-    "reason": "Skyline Music Festival",
-    "travelPartner": "Matt"
-}
+### RETRIEVE a document by its ID
+GET http://localhost:5000/api/plans/665cb15f02b3d49a46e46cae HTTP/1.1
 
-### CREATE 4
-POST http://localhost:3000/locations HTTP/1.1
-content-type: application/json
 
-{
-    "destination": "Miami",
-    "date": "2023-03-10",
-    "days": 4,
-    "reason": "Ultra Music Festival",
-    "travelPartner": "Matt, Ali, Andrew, Ashley, Ryan, EK"
-}
-
-### CREATE 5
-POST http://localhost:3000/locations HTTP/1.1
+### UPDATE a document by its ID
+PUT http://localhost:5000/api/plans/665cb15f02b3d49a46e46cae HTTP/1.1
 content-type: application/json
 
 {
     "destination": "Orlando",
-    "date": "2018-11-09",
-    "days": 9,
-    "reason": "Disney World",
-    "travelPartner": "Matt"
+    "startDate": "2023-03-10",
+    "endDate": "2023-03-14"
 }
 
 
-### RETRIEVE all documents.
-GET http://localhost:3000/locations HTTP/1.1
-
-
-
-### RETRIEVE a document by its ID.
-### Replace the following ID with one that exists in the collection.
-GET http://localhost:3000/locations/6658ae71217914d9cf415ea0 HTTP/1.1
-
-
-### UPDATE one document's year, by ID.
-### Replace the ID in the following request with one that exists
-### and update the year:
-PUT http://localhost:3000/locations/664ba33b9c368632123324ac HTTP/1.1
-content-type: application/json
-
-{
-    "destination": "Orlando",
-    "date": "2000-10-02",
-    "days": 7,
-    "reason": "Disney World", 
-    "travelPartner": "Dad, Mom, Gina, James"
-}
-
-### DELETE by ID (responds with nothing if successful):
-DELETE http://localhost:3000/locations/6658ae87217914d9cf415ea2 HTTP/1.1
+### DELETE a document by its ID
+DELETE http://localhost:5000/api/plans/665cb13c02b3d49a46e46cab HTTP/1.1
 
 
 
 ### RETRIEVE all documents (responds with 4 or the original 5):
-GET http://localhost:3000/locations HTTP/1.1
+GET http://localhost:5000/api/plans HTTP/1.1

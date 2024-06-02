@@ -1,19 +1,11 @@
 import mongoose from "mongoose";
 
 const planTripSchema = new mongoose.Schema({
-  // Define your schema fields here
   destination: { type: String, required: true },
   startDate: { type: Date, required: true },
   endDate: { type: Date, required: true },
-  // Add more fields as needed
 });
-
 
 const PlanTrip = mongoose.model("PlanTrip", planTripSchema);
 
-
-
-
-
 export default PlanTrip;
-

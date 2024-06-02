@@ -1,23 +1,25 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
+import dotenv from "dotenv";
+
+dotenv.config();
+
 import planTripRoutes from "./routes/planTripRoutes.mjs";
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-const MONGODB_URI =
-  "mongodb+srv://kellys1210:BjWSR6iSBQsMkRXt@pbp.zxmdhca.mongodb.net/";
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Routes
 app.use("/plantrip", planTripRoutes);
+app.use("*", (req, res) => res.status(404).json({ error: "not found" }));
 
-// Connect to MongoDB
+const PORT = process.env.PORT || 5000;
+const MONGODB_URI = process.env.MONGODB_URI;
+
 mongoose
-  .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(MONGODB_URI)
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Server is running on http://localhost:${PORT}`);
@@ -26,3 +28,5 @@ mongoose
   .catch((error) => {
     console.error("Database connection error:", error);
   });
+
+export default app;

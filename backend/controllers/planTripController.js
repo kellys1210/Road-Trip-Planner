@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import PlanTrip from "../models/planTripModel.mjs";
+import mongoose from "mongoose";
+import PlanTrip from "../models/planTripModel.js";
 
 export const getDestinations = async (req, res) => {
   try {
@@ -13,14 +13,14 @@ export const getDestinations = async (req, res) => {
 export const getDestinationById = async (req, res) => {
   const { id } = req.params;
 
-  // Validate ObjectId
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).json({ message: 'Invalid ID format' });
+    return res.status(400).json({ message: "Invalid ID format" });
   }
 
   try {
     const destination = await PlanTrip.findById(id);
-    if (!destination) return res.status(404).json({ message: "Destination not found" });
+    if (!destination)
+      return res.status(404).json({ message: "Destination not found" });
     res.status(200).json(destination);
   } catch (error) {
     res.status(500).json({ message: error.message });

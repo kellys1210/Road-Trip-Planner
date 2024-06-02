@@ -2,10 +2,11 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import TripsDAO from "./controllers/dao/tripsDAO.js";
 
 dotenv.config();
 
-import planTripRoutes from "./routes/planTripRoutes.mjs";
+import planTripRoutes from "./routes/planTripRoutes.js";
 
 const app = express();
 
@@ -20,13 +21,15 @@ const MONGODB_URI = process.env.MONGODB_URI;
 
 mongoose
   .connect(MONGODB_URI)
-  .then(() => {
+  .then(async (client) => {
+    await TripsDAO.injectDB(client);
     app.listen(PORT, () => {
-      console.log(`Server is running on http://localhost:${PORT}`);
+      console.log(`Server is running on port ${PORT}`);
     });
   })
   .catch((error) => {
     console.error("Database connection error:", error);
+    process.exit;
   });
 
 export default app;

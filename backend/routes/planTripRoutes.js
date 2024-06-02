@@ -5,7 +5,7 @@ import {
   createDestination,
   updateDestination,
   deleteDestination,
-} from "../controllers/planTripController.mjs";
+} from "../controllers/planTripController.js";
 
 const router = express.Router();
 

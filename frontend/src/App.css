@@ -20,7 +20,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 25vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,6 +28,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
   font-family: 'Montserrat', sans-serif;
+  padding: 10px;
 }
 
 .App-link {
@@ -58,10 +59,16 @@
 nav {
   display: flex;
   justify-content: space-between; /* Align links with space between */
-  margin: 20px;
+  margin: 10px;
 }
 
 nav a {
   margin-right: 20px; /* Add right margin between links */
   text-decoration: none;
+}
+
+/* BUTTON */
+
+button {
+  margin: 10px;
 }

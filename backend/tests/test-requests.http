@@ -1,5 +1,5 @@
 ### CREATE a document
-POST http://localhost:5000/api/PlanTrip HTTP/1.1
+POST http://localhost:5000/plantrip HTTP/1.1
 content-type: application/json
 
 {
@@ -9,7 +9,7 @@ content-type: application/json
 }
 
 ### CREATE another document
-POST http://localhost:5000/api/PlanTrip HTTP/1.1
+POST http://localhost:5000/plantrip HTTP/1.1
 content-type: application/json
 
 {
@@ -19,14 +19,14 @@ content-type: application/json
 }
 
 ### RETRIEVE all documents
-GET http://localhost:5000/api/PlanTrip HTTP/1.1
+GET http://localhost:5000/plantrip HTTP/1.1
 
 ### RETRIEVE a document by its ID
-GET http://localhost:5000/api/PlanTrip/665cb15f02b3d49a46e46cae HTTP/1.1
+GET http://localhost:5000/plantrip/665cb15f02b3d49a46e46cae HTTP/1.1
 
 
 ### UPDATE a document by its ID
-PUT http://localhost:5000/api/PlanTrip/665cb15f02b3d49a46e46cae HTTP/1.1
+PUT http://localhost:5000/plantrip/665cb15f02b3d49a46e46cae HTTP/1.1
 content-type: application/json
 
 {
@@ -37,9 +37,9 @@ content-type: application/json
 
 
 ### DELETE a document by its ID
-DELETE http://localhost:5000/api/PlanTrip/665cb13c02b3d49a46e46cab HTTP/1.1
+DELETE http://localhost:5000/plantrip/665cb13c02b3d49a46e46cab HTTP/1.1
 
 
 
 ### RETRIEVE all documents (responds with 4 or the original 5):
-GET http://localhost:5000/api/PlanTrip HTTP/1.1
+GET http://localhost:5000/plantrip HTTP/1.1

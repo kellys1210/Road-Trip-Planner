@@ -5,15 +5,16 @@ import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // Components, Styles, Media
-import Logo from "./components/Logo";
+import Logo from "./components/Logo.js";
 import "./App.css";
-import Navigation from "./components/Navigation";
+import Navigation from "./components/Navigation.js";
 
 // Pages
 import HomePage from "./pages/HomePage.js";
 import AboutPage from "./pages/AboutPage.js";
 import ContactPage from "./pages/ContactPage.js";
 import PlanTrip from "./pages/PlanTrip.js";
+import SeeTrips from "./pages/SeeTrips.js";
 
 // Render Content
 
@@ -25,9 +26,6 @@ function App() {
           <Logo />
           <span>Vegan Road Trip Planner</span>
           <Navigation />
-          <Link to="/PlanTrip">
-            <Button>Plan a New Trip</Button>
-          </Link>
         </header>
         <main>
           <section>
@@ -35,7 +33,8 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
-              <Route path="/PlanTrip" element={<PlanTrip />} />
+              <Route path="/plantrip" element={<PlanTrip />} />
+              <Route path="/seetrips" element={<SeeTrips />} />
             </Routes>
           </section>
         </main>

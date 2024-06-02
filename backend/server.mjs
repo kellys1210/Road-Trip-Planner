@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use("/api/PlanTrip", planTripRoutes);
+app.use("/plantrip", planTripRoutes);
 
 // Connect to MongoDB
 mongoose

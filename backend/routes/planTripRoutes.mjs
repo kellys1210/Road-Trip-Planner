@@ -1,6 +1,6 @@
 import express from "express";
 import {
-  getDestination,
+  getDestinations,
   getDestinationById,
   createDestination,
   updateDestination,
@@ -9,7 +9,7 @@ import {
 
 const router = express.Router();
 
-router.get("/", getDestination);
+router.get("/", getDestinations);
 router.get("/:id", getDestinationById);  
 router.post("/", createDestination);
 router.put("/:id", updateDestination);

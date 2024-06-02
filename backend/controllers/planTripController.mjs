@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import PlanTrip from "../models/planTripModel.mjs";
 
-export const getDestination = async (req, res) => {
+export const getDestinations = async (req, res) => {
   try {
     const destinations = await PlanTrip.find();
     res.status(200).json(destinations);
@@ -28,10 +28,10 @@ export const getDestinationById = async (req, res) => {
 };
 
 export const createDestination = async (req, res) => {
-  const item = new PlanTrip(req.body);
+  const newDestination = new PlanTrip(req.body);
 
   try {
-    const savedDestination = await item.save();
+    const savedDestination = await newDestination.save();
     res.status(201).json(savedDestination);
   } catch (error) {
     res.status(400).json({ message: error.message });

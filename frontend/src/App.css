@@ -18,6 +18,10 @@
   }
 }
 
+.App-main{
+  margin: 20px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 25vh;
@@ -29,6 +33,10 @@
   color: white;
   font-family: 'Montserrat', sans-serif;
   padding: 10px;
+}
+
+.App-footer {
+  margin: 20px;
 }
 
 .App-link {
@@ -54,21 +62,37 @@
 }
 
 
+
 /* NAVIGATION */
 
 nav {
   display: flex;
-  justify-content: space-between; /* Align links with space between */
+  justify-content: space-between;
   margin: 10px;
 }
 
 nav a {
-  margin-right: 20px; /* Add right margin between links */
+  margin-right: 20px; 
   text-decoration: none;
+  color: #78bb2c;
 }
 
 /* BUTTON */
 
-button {
-  margin: 10px;
+.tripButton {
+  background-color: #78bb2c;
+  border: 1px solid #2a8b51;
+  margin: 5px;
 }
+
+.tripButton:hover {
+  background-color: #5fac35;
+  border: 1px solid #2a8b51;
+}
+
+.tripButton:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 99, 71, 0.5); 
+}
+
+        
+

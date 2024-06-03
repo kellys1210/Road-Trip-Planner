@@ -6,7 +6,7 @@ const PlanTrip = () => {
   return (
     <div>
       <Link to="/seetrips">
-        <Button>See Planned Trips</Button>
+        <Button className="tripButton">See Planned Trips</Button>
       </Link>
     </div>
   );

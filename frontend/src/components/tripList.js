@@ -1,21 +1,21 @@
-import React from "react";
-import TripSingle from "./tripSingle.js";
+import React from 'react'
+import TripSingle from './tripSingle.js'
 
-const TripList = ({trips, onDelete, onEdit}) => {
+const tripList = (trips, onDelete, onEdit) => {
   return (
-    <table id="tripList">
-      <caption>Trips</caption>
+      <table id="trips">
+      <caption>List of Trips</caption>
       <thead>
         <tr>
           <th>Destination</th>
-          <th>Start Date</th>
+          <th>Departure Date</th>
           <th>Arrival Date</th>
         </tr>
       </thead>
       <tbody>
-        {trips.map((trip, i) => (
+        {trips.map((destination, i) => (
           <TripSingle
-            trip={trip}
+            destination={destination}
             key={i}
             onDelete={onDelete}
             onEdit={onEdit}
@@ -24,6 +24,7 @@ const TripList = ({trips, onDelete, onEdit}) => {
       </tbody>
     </table>
   );
-};
+}
 
-export default TripList;
+export default tripList
+

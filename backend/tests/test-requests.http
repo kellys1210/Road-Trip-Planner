@@ -3,7 +3,7 @@ POST http://localhost:5000/plantrip HTTP/1.1
 content-type: application/json
 
 {
-    "destination": "Montreal",
+    "destination": "Denver",
     "startDate": "2023-01-25",
     "endDate": "2023-01-29"
 }

@@ -10,6 +10,12 @@ const EditTripPage = () => {
 
     useEffect(() => {
         const fetchTrip = async () => {
+            if (!id) {
+                setError('Trip ID is missing');
+                setLoading(false);
+                return;
+            }
+
             try {
                 const response = await fetch(`http://localhost:5000/plantrip/${id}`); // Fetch the trip details based on ID
                 if (!response.ok) {

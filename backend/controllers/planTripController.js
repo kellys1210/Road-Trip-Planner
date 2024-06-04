@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import PlanTrip from "../models/planTripModel.js";
 
-export const getDestinations = async (req, res) => {
+export const getDestinations = async (_, res) => {
   try {
     const destinations = await PlanTrip.find();
     res.status(200).json(destinations);

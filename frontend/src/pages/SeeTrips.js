@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-// import { GrAdd, GrEdit, GrTrash } from "react-icons/gr";
-import { Link, useNavigate } from "react-router-dom";
-import { Table, Button } from "react-bootstrap";
-import EditTripPage from "./EditTripPage.js";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import TripList from "../components/tripList";
 
 function SeeTrips() {
   const [trips, setTrips] = useState([]);
@@ -58,38 +57,10 @@ function SeeTrips() {
       <Link to="/createtrip">
         <Button className="tripButton">Plan a New Trip</Button>
       </Link>
-      {trips.length > 0 ? (
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Destination</th>
-              <th>Arrival Date</th>
-              <th>Departure Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {trips.map((trip) => (
-              <tr key={trip._id}>
-                <td>{trip.destination}</td>
-                <td>{new Date(trip.startDate).toLocaleDateString()}</td>
-                <td>{new Date(trip.endDate).toLocaleDateString()}</td>
-                <td>
-                  <Link to={`/edittrip/${trip._id}`}>
-                    <Button>Edit</Button>
-                  </Link>{" "}
-                  <Button variant="danger" onClick={() => tripDelete(trip._id)}>
-                    Delete
-                  </Button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
-      ) : (
-        <div>No trips found</div>
-      )}
+      <TripList trips={trips} onDelete={tripDelete} />
     </div>
   );
 }
+
 
 export default SeeTrips;

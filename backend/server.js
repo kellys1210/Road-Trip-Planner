@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/plantrip", planTripRoutes);
-app.use("*", (req, res) => res.status(404).json({ error: "not found" }));
+app.use("*", (_, res) => res.status(404).json({ error: "not found" }));
 
 const PORT = process.env.PORT || 5000;
 const MONGODB_URI = process.env.MONGODB_URI;

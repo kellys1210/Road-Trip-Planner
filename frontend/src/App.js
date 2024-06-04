@@ -1,6 +1,6 @@
 // Dependencies
-import React, { useState } from "react";
-import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // Components, Styles, Media
@@ -12,7 +12,6 @@ import Navigation from "./components/Navigation.js";
 import HomePage from "./pages/HomePage.js";
 import AboutPage from "./pages/AboutPage.js";
 import ContactPage from "./pages/ContactPage.js";
-import PlanTrip from "./pages/PlanTrip.js";
 import SeeTrips from "./pages/SeeTrips.js";
 import LoginPage from "./pages/LoginPage.js";
 import EditTripPage from "./pages/EditTripPage.js";

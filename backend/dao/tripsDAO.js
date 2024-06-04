@@ -3,13 +3,13 @@ import { MongoClient } from "mongodb";
 let trips;
 
 export default class TripsDAO {
-  static async injectDB(conn) {
+  static async injectDB() {
     if (trips) {
       return;
     }
     try {
       const client = await MongoClient.connect(process.env.MONGODB_URI);
-      const db = client.db(); // Access the database using the db() function
+      const db = client.db();
       trips = db.collection("PlanTrip");
     } catch (e) {
       console.error(

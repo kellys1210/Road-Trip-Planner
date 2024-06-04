@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
-const planTripSchema = new mongoose.Schema({
+const PlanTripSchema = new mongoose.Schema({
   destination: { type: String, required: true },
   startDate: { type: Date, required: true },
   endDate: { type: Date, required: true },
 });
 
-const PlanTrip = mongoose.model("PlanTrip", planTripSchema);
+const PlanTrip = mongoose.model("PlanTrip", PlanTripSchema);
 
 export default PlanTrip;

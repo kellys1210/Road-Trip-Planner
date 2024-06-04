@@ -3,18 +3,16 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
 
 const EditTrip = () => {
-  // UseParams hook to get the trip id from the URL
   const { id } = useParams();
   const navigate = useNavigate();
 
   // State for trip details
   const [trip, setTrip] = useState({
-    destination: '',
-    startDate: '',
-    endDate: ''
+    destination: "",
+    startDate: "",
+    endDate: "",
   });
 
-  // Function to fetch trip details based on the id
   useEffect(() => {
     const fetchTripDetails = async () => {
       // Fetch trip details from backend using the trip id
@@ -34,23 +32,23 @@ const EditTrip = () => {
   }, [id]);
 
   // Function to handle form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     // Logic to update trip details on the backend
     try {
       const response = await fetch(`http://localhost:5000/plantrip/${id}`, {
         method: "PUT",
         body: JSON.stringify(trip),
         headers: {
-          "Content-Type": "application/json"
-        }
+          "Content-Type": "application/json",
+        },
       });
 
       if (!response.ok) {
         throw new Error("Failed to update trip details");
       }
 
-      alert('Trip updated successfully');
+      alert("Trip updated successfully");
       navigate("/seetrips");
     } catch (error) {
       console.error("Error updating trip details:", error);
@@ -58,8 +56,8 @@ const EditTrip = () => {
   };
 
   // Function to handle input changes
-  const handleChange = (e) => {
-    setTrip({ ...trip, [e.target.name]: e.target.value });
+  const handleChange = (event) => {
+    setTrip({ ...trip, [event.target.name]: event.target.value });
   };
 
   return (
@@ -104,4 +102,3 @@ const EditTrip = () => {
 };
 
 export default EditTrip;
-

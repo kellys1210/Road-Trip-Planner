@@ -29,30 +29,34 @@ Before running the Trip Planner App, ensure you have the following installed:
 
 ### Installation
 
-Clone the repository:
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/your-username/trip-planner-app.git
 ```
 
+2. Navigate to the project directory:
+
 ```bash
 cd trip-planner-app
 ```
+
+3. Install dependencies:
 
 ```bash
 npm install
 ```
 
 ## Usage
-Start the application:
+1. Start the application:
 
 ```bash
 npm start
 ```
 
-Open your web browser and visit http://localhost:3000 to access the Trip Planner App.
+2. Open your web browser and visit http://localhost:3000 to access the Trip Planner App.
 
-Use the app to create, view, edit, and delete trips as needed.
+3. Use the app to create, view, edit, and delete trips as needed.
 
 
 ## License

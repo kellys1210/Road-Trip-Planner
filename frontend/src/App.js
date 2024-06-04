@@ -12,10 +12,11 @@ import Navigation from "./components/Navigation.js";
 import HomePage from "./pages/HomePage.js";
 import AboutPage from "./pages/AboutPage.js";
 import ContactPage from "./pages/ContactPage.js";
-import SeeTrips from "./pages/SeeTrips.js";
+import SeeTrips from "./pages/SeeTripsPage.js";
 import LoginPage from "./pages/LoginPage.js";
 import EditTripPage from "./pages/EditTripPage.js";
 import CreateTripPage from "./pages/CreateTripPage.js";
+import TripDetails from "./pages/TripDetailsPage.js";
 
 // Render Content
 function App() {
@@ -37,6 +38,7 @@ function App() {
               <Route path="/seetrips" element={<SeeTrips />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/createtrip" element={<CreateTripPage />} />
+              <Route path="/tripdetails/:id" element={<TripDetails />} />
             </Routes>
           </section>
         </main>

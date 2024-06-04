@@ -3,7 +3,8 @@ POST http://localhost:5000/plantrip HTTP/1.1
 content-type: application/json
 
 {
-    "destination": "Denver",
+    "origin": "Philadelphia, PA",
+    "destination": "Denver, CO",
     "startDate": "2023-01-25",
     "endDate": "2023-01-29"
 }
@@ -13,7 +14,8 @@ POST http://localhost:5000/plantrip HTTP/1.1
 content-type: application/json
 
 {
-    "destination": "Seattle",
+    "origin": "Philadelphia, PA",
+    "destination": "Seattle, WA",
     "startDate": "2023-02-14",
     "endDate": "2023-02-28"
 }
@@ -30,7 +32,8 @@ PUT http://localhost:5000/plantrip/665cb15f02b3d49a46e46cae HTTP/1.1
 content-type: application/json
 
 {
-    "destination": "Orlando",
+    "origin": "Philadelphia, PA",
+    "destination": "Orlando, FL",
     "startDate": "2023-03-10",
     "endDate": "2023-03-14"
 }

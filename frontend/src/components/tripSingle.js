@@ -9,6 +9,7 @@ const tripSingle = ({ destination, onDelete }) => {
 
   return (
     <tr>
+      <td>{destination.origin}</td>
       <td>{destination.destination}</td>
       <td>{destination.startDate.slice(0, 10)}</td>
       <td>{destination.endDate.slice(0, 10)}</td>

@@ -4,9 +4,9 @@ import TripSingle from "./tripSingle.js";
 const tripList = ({ trips, onDelete }) => {
   return (
     <table className="table table-striped">
-      <caption>List of Trips</caption>
       <thead>
         <tr>
+          <th>Origin</th>
           <th>Destination</th>
           <th>Departure Date</th>
           <th>Arrival Date</th>

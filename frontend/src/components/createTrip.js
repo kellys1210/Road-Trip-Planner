@@ -6,6 +6,7 @@ const CreateTrip = () => {
   const navigate = useNavigate();
 
   const [trip, setTrip] = useState({
+    origin: "",
     destination: "",
     startDate: "",
     endDate: "",
@@ -41,6 +42,17 @@ const CreateTrip = () => {
     <div>
       <h1>Create a New Trip</h1>
       <Form onSubmit={handleSubmit}>
+      <Form.Group controlId="origin">
+      </Form.Group>
+          <Form.Label>Origin</Form.Label>
+          <Form.Control
+            type="text"
+            name="origin"
+            value={trip.origin}
+            onChange={handleChange}
+            required
+            placeholder="Ex. Denver, CO"
+          />
         <Form.Group controlId="destination">
           <Form.Label>Destination</Form.Label>
           <Form.Control
@@ -49,7 +61,7 @@ const CreateTrip = () => {
             value={trip.destination}
             onChange={handleChange}
             required
-            placeholder="Ex. Philadelphia, Pennsylvania"
+            placeholder="Ex. Philadelphia, PA"
           />
         </Form.Group>
         <Form.Group controlId="startDate">

@@ -63,6 +63,17 @@ const EditTrip = () => {
   return (
     <div>
       <Form onSubmit={handleSubmit}>
+      <Form.Group controlId="origin">
+        {/* Add your form controls here */}
+      </Form.Group>
+          <Form.Label>Origin</Form.Label>
+          <Form.Control
+            type="text"
+            name="origin"
+            value={trip.origin || ""}
+            onChange={handleChange}
+            required
+          />
         <Form.Group controlId="destination">
           <Form.Label>Destination</Form.Label>
           <Form.Control

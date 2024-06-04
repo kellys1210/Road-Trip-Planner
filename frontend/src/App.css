@@ -82,7 +82,7 @@ nav a {
 .tripButton {
   background-color: #78bb2c;
   border: 1px solid #2a8b51;
-  margin: 5px;
+  margin: 10px;
 }
 
 .tripButton:hover {
@@ -91,7 +91,7 @@ nav a {
 }
 
 .tripButton:focus {
-  box-shadow: 0 0 0 0.2rem rgba(255, 99, 71, 0.5); 
+  box-shadow: 0 0 0 0.2rem #00000000; 
 }
 
         

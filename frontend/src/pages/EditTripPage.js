@@ -31,7 +31,7 @@ const EditTripPage = () => {
         };
 
         fetchTrip();
-    }, [id]); // Fetch trip details whenever the ID changes
+    }, [id]);
 
     if (loading) {
         return <div>Loading...</div>;
@@ -41,7 +41,6 @@ const EditTripPage = () => {
         return <div>Error: {error}</div>;
     }
 
-    // Render TripForm component with trip details
     return (
         <div>
             <h2>Edit Trip</h2>

@@ -93,7 +93,7 @@ const EditTrip = () => {
             required
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button className="tripButton" type="submit">
           Save Changes
         </Button>
       </Form>

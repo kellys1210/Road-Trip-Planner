@@ -15,6 +15,7 @@ import ContactPage from "./pages/ContactPage.js";
 import SeeTrips from "./pages/SeeTrips.js";
 import LoginPage from "./pages/LoginPage.js";
 import EditTripPage from "./pages/EditTripPage.js";
+import CreateTripPage from "./pages/CreateTripPage.js";
 
 // Render Content
 function App() {
@@ -35,6 +36,7 @@ function App() {
               <Route path="/edittrip/:id" element={<EditTripPage />} /> 
               <Route path="/seetrips" element={<SeeTrips />} />
               <Route path="/login" element={<LoginPage />} />
+              <Route path="/createtrip" element={<CreateTripPage />} />
             </Routes>
           </section>
         </main>

@@ -6,7 +6,7 @@ import "../App.css";
 const HomePage = () => {
   return (
     <div>
-      <Link to="/plantrip">
+      <Link to="/createtrip">
         <Button className="tripButton">Plan a New Trip</Button>
       </Link>
       <Link to="/seetrips">

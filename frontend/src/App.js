@@ -1,6 +1,6 @@
 // Dependencies
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // Components, Styles, Media
@@ -15,6 +15,7 @@ import ContactPage from "./pages/ContactPage.js";
 import PlanTrip from "./pages/PlanTrip.js";
 import SeeTrips from "./pages/SeeTrips.js";
 import LoginPage from "./pages/LoginPage.js";
+import EditTripPage from "./pages/EditTripPage.js";
 
 // Render Content
 function App() {
@@ -32,7 +33,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
-              <Route path="/plantrip" element={<PlanTrip />} />
+              <Route path="/edittrip/:id" element={<EditTripPage />} /> 
               <Route path="/seetrips" element={<SeeTrips />} />
               <Route path="/login" element={<LoginPage />} />
             </Routes>

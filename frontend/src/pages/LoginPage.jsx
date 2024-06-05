@@ -1,7 +1,8 @@
 import React from "react";
+import PlaceAuto from "../components/PlaceAuto";
 
 const LoginPage = () => {
-  return <div>Login</div>;
+  return <div><PlaceAuto /></div>;
 };
 
 export default LoginPage;

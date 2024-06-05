@@ -22,12 +22,12 @@ const CreateTrip = () => {
     try {
       const response = await axios.post("http://localhost:5000/plantrip", trip);
 
-      if (response.status === 201) { // Check for successful creation
-        alert("Trip created successfully");
-        navigate("/seetrips");
-      } else {
+      if (!response.ok) {
         throw new Error("Failed to create trip");
       }
+
+      alert("Trip created successfully");
+      navigate("/seetrips");
     } catch (error) {
       console.error("Error creating trip:", error);
     }
@@ -79,7 +79,7 @@ const CreateTrip = () => {
             required
           />
         </Form.Group>
-        <Button className="tripButton" type="submit">
+        <Button className="tripButton" type="submit" onClick={handleSubmit}>
           Create Trip
         </Button>
       </Form>
@@ -88,4 +88,3 @@ const CreateTrip = () => {
 };
 
 export default CreateTrip;
-

@@ -21,15 +21,16 @@ const CreateTrip = () => {
     event.preventDefault();
     try {
       const response = await axios.post("http://localhost:5000/plantrip", trip);
-
-      if (!response.ok) {
+  
+      if (response.status === 201) {
+        alert("Trip created successfully");
+        navigate("/seetrips");
+      } else {
         throw new Error("Failed to create trip");
       }
-
-      alert("Trip created successfully");
-      navigate("/seetrips");
     } catch (error) {
       console.error("Error creating trip:", error);
+      alert("Failed to create trip");
     }
   };
 

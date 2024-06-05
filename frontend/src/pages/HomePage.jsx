@@ -5,7 +5,7 @@ import "../App.css";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="homePageContainer">
       <Link to="/createtrip">
         <Button className="tripButton">Plan a New Trip</Button>
       </Link>

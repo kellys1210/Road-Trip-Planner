@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Login from "./Login.js";
+import Login from "./Login.jsx";
 
 const Navigation = () => {
   const [user, setUser] = useState(null);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import EditTrip from '../components/editTrip.js'
+import EditTrip from '../components/editTrip.jsx'
 
 const EditTripPage = () => {
     const { id } = useParams(); // Get the trip ID from URL parameter

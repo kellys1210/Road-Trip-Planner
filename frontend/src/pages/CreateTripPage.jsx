@@ -1,5 +1,5 @@
 import React from 'react'
-import CreateTrip from '../components/createTrip.js'
+import CreateTrip from '../components/createTrip.jsx'
 
 const CreateTripPage = () => {
   return (

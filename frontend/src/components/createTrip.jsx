@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const CreateTrip = () => {
   const navigate = useNavigate();
@@ -19,20 +20,14 @@ const CreateTrip = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/plantrip", {
-        method: "POST",
-        body: JSON.stringify(trip),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await axios.post("http://localhost:5000/plantrip", trip);
 
-      if (!response.ok) {
+      if (response.status === 201) { // Check for successful creation
+        alert("Trip created successfully");
+        navigate("/seetrips");
+      } else {
         throw new Error("Failed to create trip");
       }
-
-      alert("Trip created successfully");
-      navigate("/seetrips");
     } catch (error) {
       console.error("Error creating trip:", error);
     }
@@ -42,8 +37,7 @@ const CreateTrip = () => {
     <div>
       <h1>Create a New Trip</h1>
       <Form onSubmit={handleSubmit}>
-      <Form.Group controlId="origin">
-      </Form.Group>
+        <Form.Group controlId="origin">
           <Form.Label>Origin</Form.Label>
           <Form.Control
             type="text"
@@ -53,6 +47,7 @@ const CreateTrip = () => {
             required
             placeholder="Ex. Denver, CO"
           />
+        </Form.Group>
         <Form.Group controlId="destination">
           <Form.Label>Destination</Form.Label>
           <Form.Control
@@ -84,7 +79,9 @@ const CreateTrip = () => {
             required
           />
         </Form.Group>
-        <Button className="tripButton" type="submit">Create Trip</Button>
+        <Button className="tripButton" type="submit">
+          Create Trip
+        </Button>
       </Form>
     </div>
   );

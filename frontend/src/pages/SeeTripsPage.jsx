@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import TripList from "../components/tripList";
+import TripList from "../components/tripList.jsx";
 
 function SeeTrips() {
   const [trips, setTrips] = useState([]);

@@ -52,6 +52,15 @@
   }
 }
 
+/* HOME PAGE */
+.homePageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 20vh; 
+}
+
 /* IMAGES */
 
 
@@ -81,13 +90,19 @@ nav a {
 
 .tripButton {
   background-color: #78bb2c;
-  border: 1px solid #2a8b51;
-  margin: 10px;
+  margin-bottom: 20px; 
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 5px;
 }
 
 .tripButton:hover {
   background-color: #5fac35;
-  border: 1px solid #2a8b51;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .tripButton:focus {

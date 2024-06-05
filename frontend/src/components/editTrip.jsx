@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
+import axios from "axios";
 
 const EditTrip = () => {
   const { id } = useParams();
@@ -17,12 +18,8 @@ const EditTrip = () => {
     const fetchTripDetails = async () => {
       // Fetch trip details from backend using the trip id
       try {
-        const response = await fetch(`http://localhost:5000/plantrip/${id}`);
-        if (!response.ok) {
-          throw new Error("Failed to fetch trip details");
-        }
-        const tripData = await response.json();
-        setTrip(tripData);
+        const response = await axios.get(`http://localhost:5000/plantrip/${id}`);
+        setTrip(response.data);
       } catch (error) {
         console.error("Error fetching trip details:", error);
       }
@@ -36,17 +33,11 @@ const EditTrip = () => {
     event.preventDefault();
     // Logic to update trip details on the backend
     try {
-      const response = await fetch(`http://localhost:5000/plantrip/${id}`, {
-        method: "PUT",
-        body: JSON.stringify(trip),
+      const response = await axios.put(`http://localhost:5000/plantrip/${id}`, trip, {
         headers: {
           "Content-Type": "application/json",
         },
       });
-
-      if (!response.ok) {
-        throw new Error("Failed to update trip details");
-      }
 
       alert("Trip updated successfully");
       navigate("/seetrips");
@@ -63,17 +54,17 @@ const EditTrip = () => {
   return (
     <div>
       <Form onSubmit={handleSubmit}>
-      <Form.Group controlId="origin">
-        {/* Add your form controls here */}
-      </Form.Group>
-          <Form.Label>Origin</Form.Label>
-          <Form.Control
-            type="text"
-            name="origin"
-            value={trip.origin || ""}
-            onChange={handleChange}
-            required
-          />
+        <Form.Group controlId="origin">
+          {/* Add your form controls here */}
+        </Form.Group>
+        <Form.Label>Origin</Form.Label>
+        <Form.Control
+          type="text"
+          name="origin"
+          value={trip.origin || ""}
+          onChange={handleChange}
+          required
+        />
         <Form.Group controlId="destination">
           <Form.Label>Destination</Form.Label>
           <Form.Control

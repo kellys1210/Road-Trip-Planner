@@ -6,8 +6,6 @@ import { Button } from "react-bootstrap";
 
 const tripSingle = ({ destination, onDelete }) => {
 
-  
-
   return (
     <tr>
       <td>{destination.origin}</td>

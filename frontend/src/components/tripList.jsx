@@ -1,5 +1,5 @@
 import React from "react";
-import TripSingle from "./tripSingle.js";
+import TripSingle from "./tripSingle.jsx";
 
 const tripList = ({ trips, onDelete }) => {
   return (

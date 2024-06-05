@@ -13,22 +13,14 @@
       content="Web site created using create-react-app" />
 
     <title>Road Trip Planner</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
   </head>
   <body>
     <div id="root"></div>
-    <script>
-      function loadGoogleMaps() {
-        const script = document.createElement("script");
-        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyC6wKDpVvtd89H4FY2gI6EavWSMwESA8wk&callback=initMap`;
-        script.defer = true;
-        document.body.appendChild(script);
-      }
-
-      loadGoogleMaps();
-    </script>
     <script src="/static/js/bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6wKDpVvtd89H4FY2gI6EavWSMwESA8wk&libraries=places"></script>
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

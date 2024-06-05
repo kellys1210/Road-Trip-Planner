@@ -34,7 +34,7 @@ const TripDetails = () => {
       <p> Planned Departure Date: {trip.startDate.slice(0, 10)}</p>
       <p>Estimated Arrival Date: {trip.endDate.slice(0, 10)}</p>
       <p>Trip Length: {tripLength} days</p>
-        <Map origin={trip.origin} destination={trip.destination} />{" "}
+        <Map  />
     
       {/* <p><WeatherWidget city={trip.destination} /></p> */}
       <Link to="/seetrips">

@@ -1,78 +1,92 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { Button, Form } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import PlaceAuto from "./PlaceAuto";
 
 const EditTrip = () => {
-  const { id } = useParams();
   const navigate = useNavigate();
-
-  // State for trip details
+  const { id } = useParams(); // Get trip ID from URL parameters
   const [trip, setTrip] = useState({
+    origin: "",
     destination: "",
     startDate: "",
     endDate: "",
   });
 
   useEffect(() => {
-    const fetchTripDetails = async () => {
-      // Fetch trip details from backend using the trip id
+    const fetchTrip = async () => {
       try {
         const response = await axios.get(`http://localhost:5000/plantrip/${id}`);
-        setTrip(response.data);
+        const tripData = response.data;
+        
+        // Format dates to 'YYYY-MM-DD' for the input fields
+        tripData.startDate = new Date(tripData.startDate).toISOString().split('T')[0];
+        tripData.endDate = new Date(tripData.endDate).toISOString().split('T')[0];
+
+        setTrip(tripData);
       } catch (error) {
-        console.error("Error fetching trip details:", error);
+        console.error("Error fetching trip:", error);
       }
     };
 
-    fetchTripDetails();
+    fetchTrip();
   }, [id]);
 
-  // Function to handle form submission
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    // Logic to update trip details on the backend
-    try {
-      const response = await axios.put(`http://localhost:5000/plantrip/${id}`, trip, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      alert("Trip updated successfully");
-      navigate("/seetrips");
-    } catch (error) {
-      console.error("Error updating trip details:", error);
-    }
-  };
-
-  // Function to handle input changes
   const handleChange = (event) => {
     setTrip({ ...trip, [event.target.name]: event.target.value });
   };
 
+  const handleSelectAddress = (address, placeId, type) => {
+    if (type === "origin") {
+      setTrip({ ...trip, origin: address, originPlaceId: placeId });
+    } else if (type === "destination") {
+      setTrip({ ...trip, destination: address, destinationPlaceId: placeId });
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    // Check if all required fields are populated
+    if (!trip.origin || !trip.destination || !trip.startDate || !trip.endDate) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    try {
+      const response = await axios.put(`http://localhost:5000/plantrip/${id}`, trip);
+
+      if (response.status === 200) {
+        alert("Trip updated successfully");
+        navigate("/seetrips");
+      } else {
+        throw new Error("Failed to update trip");
+      }
+    } catch (error) {
+      console.error("Error updating trip:", error);
+      alert("Failed to update trip");
+    }
+  };
+
   return (
     <div>
+      <h1>Edit Trip</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="origin">
-          {/* Add your form controls here */}
+          <Form.Label>Origin</Form.Label>
+          <PlaceAuto
+            handleSelectAddress={handleSelectAddress}
+            type="origin"
+            initialValue={trip.origin}
+          />
         </Form.Group>
-        <Form.Label>Origin</Form.Label>
-        <Form.Control
-          type="text"
-          name="origin"
-          value={trip.origin || ""}
-          onChange={handleChange}
-          required
-        />
         <Form.Group controlId="destination">
           <Form.Label>Destination</Form.Label>
-          <Form.Control
-            type="text"
-            name="destination"
-            value={trip.destination || ""}
-            onChange={handleChange}
-            required
+          <PlaceAuto
+            handleSelectAddress={handleSelectAddress}
+            type="destination"
+            initialValue={trip.destination}
           />
         </Form.Group>
         <Form.Group controlId="startDate">
@@ -80,7 +94,7 @@ const EditTrip = () => {
           <Form.Control
             type="date"
             name="startDate"
-            value={trip.startDate ? trip.startDate.slice(0, 10) : ""}
+            value={trip.startDate}
             onChange={handleChange}
             required
           />
@@ -90,13 +104,13 @@ const EditTrip = () => {
           <Form.Control
             type="date"
             name="endDate"
-            value={trip.endDate ? trip.endDate.slice(0, 10) : ""}
+            value={trip.endDate}
             onChange={handleChange}
             required
           />
         </Form.Group>
         <Button className="tripButton" type="submit">
-          Save Changes
+          Update Trip
         </Button>
       </Form>
     </div>
@@ -104,3 +118,5 @@ const EditTrip = () => {
 };
 
 export default EditTrip;
+
+

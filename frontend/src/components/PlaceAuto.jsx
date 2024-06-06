@@ -1,64 +1,61 @@
-import React, { useState } from "react";
-import PlacesAutocomplete, {
-  geocodeByAddress,
-  getLatLng
-} from "react-places-autocomplete";
+import React, { useState, useEffect } from "react";
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 
-const PlaceAuto = ({ handleSelectAddress, type }) => {
-    const [address, setAddress] = useState("");
-    const [placeId, setPlaceId] = useState("");
+const PlaceAuto = ({ handleSelectAddress, type, initialValue }) => {
+  const [address, setAddress] = useState(initialValue || "");
+  const [placeId, setPlaceId] = useState("");
 
-    const handleSelect = async (address) => {
-        const results = await geocodeByAddress(address);
-        const latLng = await getLatLng(results[0]);
-        const placeId = results[0].place_id;
+  useEffect(() => {
+    if (initialValue) {
+      setAddress(initialValue);
+    }
+  }, [initialValue]);
 
-        setAddress(address);
-        setPlaceId(placeId);
+  const handleSelect = async (address) => {
+    const results = await geocodeByAddress(address);
+    const latLng = await getLatLng(results[0]);
+    const selectedPlaceId = results[0].place_id;
 
-        console.log("Selected Address:", address);
-        console.log("Selected Place ID:", placeId);
-        console.log("Latitude:", latLng.lat);
-        console.log("Longitude:", latLng.lng);
+    setAddress(address);
+    setPlaceId(selectedPlaceId);
 
-        handleSelectAddress(address, placeId, type);
-    };
+    console.log("Selected Address:", address);
+    console.log("Selected Place ID:", selectedPlaceId);
+    console.log("Latitude:", latLng.lat);
+    console.log("Longitude:", latLng.lng);
 
-    return (
-        <div>
-            <PlacesAutocomplete
-                value={address}
-                onChange={setAddress}
-                onSelect={handleSelect}
-            >
-                {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                    <div>
-                        <p>Selected Address: {address}</p>
-                        <p>Selected Place ID: {placeId}</p>
+    handleSelectAddress(address, selectedPlaceId, type);
+  };
 
-                        <input {...getInputProps({ placeholder: "Type address" })} />
-
-                        <div>
-                            {loading ? <div>...loading</div> : null}
-
-                            {suggestions.map(suggestion => {
-                                const style = {
-                                    backgroundColor: suggestion.active ? "#5fac35" : "#fff"
-                                };
-
-                                return (
-                                    <div {...getSuggestionItemProps(suggestion, { style })}>
-                                        {suggestion.description}
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </div>
-                )}
-            </PlacesAutocomplete>
-        </div>
-    );
-}
+  return (
+    <div>
+      <PlacesAutocomplete value={address} onChange={setAddress} onSelect={handleSelect}>
+        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+          <div>
+            <p>Selected Address: {address}</p>
+            <p>Selected Place ID: {placeId}</p>
+            <input {...getInputProps({ placeholder: "Type address" })} />
+            <div>
+              {loading ? <div>...loading</div> : null}
+              {suggestions.map((suggestion) => {
+                const style = {
+                  backgroundColor: suggestion.active ? "#5fac35" : "#fff",
+                };
+                return (
+                  <div {...getSuggestionItemProps(suggestion, { style })}>
+                    {suggestion.description}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </PlacesAutocomplete>
+    </div>
+  );
+};
 
 export default PlaceAuto;
+
+
     

@@ -4,18 +4,26 @@ import PlacesAutocomplete, {
   getLatLng
 } from "react-places-autocomplete";
 
-const PlaceAuto =  () => {
+const PlaceAuto = () => {
     const [address, setAddress] = useState("");
-    const [coordinates, setCoordinates] = useState({
-        lat: null,
-        lng: null
-    });
+    const [placeId, setPlaceId] = useState("");
+    const [selectedAddress, setSelectedAddress] = useState("");
+    const [selectedPlaceId, setSelectedPlaceId] = useState("");
 
-    const handleSelect = async (value) => {
-        const results = await geocodeByAddress(value);
+    const handleSelect = async (address) => {
+        const results = await geocodeByAddress(address);
         const latLng = await getLatLng(results[0]);
-        setAddress(value);
-        setCoordinates(latLng);
+        const selectedPlaceId = results[0].place_id;
+
+        setAddress(address);
+        setSelectedAddress(address);
+        setPlaceId(selectedPlaceId);
+        setSelectedPlaceId(selectedPlaceId);
+
+        console.log("Selected Address:", address);
+        console.log("Selected Place ID:", selectedPlaceId);
+        console.log("Latitude:", latLng.lat);
+        console.log("Longitude:", latLng.lng);
     };
 
     return (
@@ -27,8 +35,8 @@ const PlaceAuto =  () => {
             >
                 {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                     <div>
-                        <p>Latitude: {coordinates.lat}</p>
-                        <p>Longitude: {coordinates.lng}</p>
+                        <p>Selected Address: {selectedAddress}</p>
+                        <p>Selected Place ID: {selectedPlaceId}</p>
 
                         <input {...getInputProps({ placeholder: "Type address" })} />
 
@@ -55,3 +63,4 @@ const PlaceAuto =  () => {
 }
 
 export default PlaceAuto;
+    

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from "react-places-autocomplete";
+import { Form } from "react-bootstrap";
+import '../App.css'
 
 const PlaceAuto = ({ handleSelectAddress, type, initialValue }) => {
   const [address, setAddress] = useState(initialValue || "");
@@ -14,17 +16,12 @@ const PlaceAuto = ({ handleSelectAddress, type, initialValue }) => {
   const handleSelect = async (address) => {
     const results = await geocodeByAddress(address);
     const latLng = await getLatLng(results[0]);
-    const selectedPlaceId = results[0].place_id;
+    const placeId = results[0].place_id;
 
     setAddress(address);
-    setPlaceId(selectedPlaceId);
+    setPlaceId(placeId);
 
-    console.log("Selected Address:", address);
-    console.log("Selected Place ID:", selectedPlaceId);
-    console.log("Latitude:", latLng.lat);
-    console.log("Longitude:", latLng.lng);
-
-    handleSelectAddress(address, selectedPlaceId, type);
+    handleSelectAddress(address, placeId, type);
   };
 
   return (
@@ -32,19 +29,15 @@ const PlaceAuto = ({ handleSelectAddress, type, initialValue }) => {
       <PlacesAutocomplete value={address} onChange={setAddress} onSelect={handleSelect}>
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
-            <p>Selected Address: {address}</p>
-            <p>Selected Place ID: {placeId}</p>
-            <input {...getInputProps({ placeholder: "Type address" })} />
-            <div>
-              {loading ? <div>...loading</div> : null}
-              {suggestions.map((suggestion) => {
-                const style = {
-                  backgroundColor: suggestion.active ? "#5fac35" : "#fff",
-                };
-                return (
-                  <div {...getSuggestionItemProps(suggestion, { style })}>
-                    {suggestion.description}
-                  </div>
+            <input {...getInputProps({ placeholder: "Type address", className: "form-control" })} />
+            <div className="suggestion-container">
+            {loading ? <div>...loading</div> : null}
+            {suggestions.map((suggestion) => {
+              const className = suggestion.active ? "suggestion-item active" : "suggestion-item";
+              return (
+                <div {...getSuggestionItemProps(suggestion, { className })}>
+                  {suggestion.description}
+                </div>
                 );
               })}
             </div>
@@ -56,6 +49,7 @@ const PlaceAuto = ({ handleSelectAddress, type, initialValue }) => {
 };
 
 export default PlaceAuto;
+
 
 
     

@@ -109,5 +109,26 @@ nav a {
   box-shadow: 0 0 0 0.2rem #00000000; 
 }
 
+/* Form */
+
+.suggestion-container {
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #fff;
+  border-radius: 0 0 4px 4px;
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion-item.active {
+  background-color: #5fac35;
+  color: white;
+}
+
         
 

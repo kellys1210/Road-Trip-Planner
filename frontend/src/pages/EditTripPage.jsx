@@ -43,7 +43,6 @@ const EditTripPage = () => {
 
     return (
         <div>
-            <h2>Edit Trip</h2>
             <EditTrip trip={trip} />
         </div>
     );

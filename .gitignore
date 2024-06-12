@@ -7,6 +7,7 @@
 /.pnp
 .pnp.js
 .yarn/install-state.gz
+/Users/Kelly/Desktop/Project/babel.config.js
 
 # testing
 /coverage

@@ -7,12 +7,6 @@ const PlaceAuto = ({ handleSelectAddress, type, initialValue }) => {
   const [address, setAddress] = useState(initialValue || "");
   const [placeId, setPlaceId] = useState("");
 
-  useEffect(() => {
-    if (initialValue) {
-      setAddress(initialValue);
-    }
-  }, [initialValue]);
-
   const handleSelect = async (address) => {
     const results = await geocodeByAddress(address);
     const latLng = await getLatLng(results[0]);
@@ -23,6 +17,12 @@ const PlaceAuto = ({ handleSelectAddress, type, initialValue }) => {
 
     handleSelectAddress(address, placeId, type);
   };
+
+  useEffect(() => {
+    if (initialValue) {
+      setAddress(initialValue);
+    }
+  }, [initialValue]);
 
   return (
     <div>

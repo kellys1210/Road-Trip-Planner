@@ -6,7 +6,7 @@ import PlaceAuto from "./PlaceAuto";
 
 const EditTrip = () => {
   const navigate = useNavigate();
-  const { id } = useParams(); // Get trip ID from URL parameters
+  const { id } = useParams();
   const [trip, setTrip] = useState({
     origin: "",
     destination: "",
@@ -20,7 +20,6 @@ const EditTrip = () => {
         const response = await axios.get(`http://localhost:5000/plantrip/${id}`);
         const tripData = response.data;
         
-        // Format dates to 'YYYY-MM-DD' for the input fields
         tripData.startDate = new Date(tripData.startDate).toISOString().split('T')[0];
         tripData.endDate = new Date(tripData.endDate).toISOString().split('T')[0];
 
@@ -48,7 +47,6 @@ const EditTrip = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Check if all required fields are populated
     if (!trip.origin || !trip.destination || !trip.startDate || !trip.endDate) {
       alert("Please fill in all required fields.");
       return;

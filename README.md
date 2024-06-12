@@ -1,10 +1,11 @@
 # Road Trip Planner App
 
-Welcome to the Road Trip Planner App! This application helps users plan and manage their trips by allowing them to create, view, edit, and delete trip details.
+Welcome to the Road Trip Planner App! This application helps users plan and manage their trips by allowing them to create, view, edit, and delete trip details. This app utilizes Google API to allow for autocompletion when entering trip origin and destination, and to display the best available driving route.
 
 ## Table of Contents
 
 - Features
+- API Usage
 - Getting Started
   - Prerequisites
   - Installation
@@ -13,11 +14,17 @@ Welcome to the Road Trip Planner App! This application helps users plan and mana
 
 ## Features
 
-- Create Trips: Users can create new trips by providing details such as destination, departure date, and arrival date.
-- View Trips: Users can view a list of their trips, including destination, departure date, arrival date, and trip length.
-- Edit Trips: Users can edit existing trip details, including destination, departure date, and arrival date.
-- Delete Trips: Users can delete trips they no longer need.
-- Search Trips: Users can search for trips by destination.
+- **Create Trips**: Users can create new trips by providing details such as origin, destination, departure date, and arrival date.
+- **View Trips**: Users can view a list of their trips, including origin, destination, departure date, arrival date, trip length, and driving route.
+- **Edit Trips**: Users can edit existing trip details, including origin, destination, departure date, and arrival date.
+- **Delete Trips**: Users can delete trips they are no longer planning or no longer need details for.
+- **Places Autocomplete**: Utilizes Google Places Autocomplete API for easy input of origin and destination.
+- **Google Maps API Integration**: Utilizes Google Maps API to display the route between origin and destination.
+
+## API Usage
+
+- **Google Places Autocomplete API**: The app uses the Google Places Autocomplete API to provide suggestions and autofill functionality when users enter origin and destination locations.
+- **Google Maps API**: The app uses the Google Maps API to display the route between the origin and destination entered by the user.
 
 ## Getting Started
 
@@ -48,6 +55,7 @@ npm install
 ```
 
 ## Usage
+
 1. Start the application:
 
 ```bash
@@ -57,7 +65,6 @@ npm start
 2. Open your web browser and visit http://localhost:3000 to access the Trip Planner App.
 
 3. Use the app to create, view, edit, and delete trips as needed.
-
 
 ## License
 

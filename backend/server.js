@@ -31,5 +31,6 @@ mongoose
     console.error("Database connection error:", error);
     process.exit;
   });
+  
 
 export default app;

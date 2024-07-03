@@ -17,9 +17,13 @@ Table of Contents
     -   [Usage](#usage)
 -   [License](#license)
 
+Business Need
+-------------------------------------
 
 In today's fast-paced world, planning road trips can be time-consuming and cumbersome. Travelers need an efficient way to organize their trips, manage their itineraries, and ensure they have the best routes for their journeys. This Road Trip Planner App is designed to streamline this process by providing a user-friendly platform for planning and managing road trips.
 
+Target Audience
+-------------------------------------
 
 The target audience for the Road Trip Planner App includes:
 
@@ -47,6 +51,13 @@ Features
 -   **Delete Trips:** Users can delete trips they are no longer planning or no longer need details for.
 -   **Places Autocomplete:** Utilizes Google Places Autocomplete API for easy input of origin and destination.
 -   **Google Maps API Integration:** Utilizes Google Maps API to display the route between origin and destination.
+
+Features Still to be Implemented
+--------
+
+- ** Login
+- ** Ability to place waypoints on route
+- ** Deployment
 
 API Usage
 ---------

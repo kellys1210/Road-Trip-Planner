@@ -17,13 +17,9 @@ Table of Contents
     -   [Usage](#usage)
 -   [License](#license)
 
-Business Need
--------------
 
-In today's fast-paced world, planning road trips can be time-consuming and cumbersome. Travelers need an efficient way to organize their trips, manage their itineraries, and ensure they have the best routes for their journeys. The Road Trip Planner App is designed to streamline this process by providing a user-friendly platform for planning and managing road trips.
+In today's fast-paced world, planning road trips can be time-consuming and cumbersome. Travelers need an efficient way to organize their trips, manage their itineraries, and ensure they have the best routes for their journeys. This Road Trip Planner App is designed to streamline this process by providing a user-friendly platform for planning and managing road trips.
 
-Target Audience
----------------
 
 The target audience for the Road Trip Planner App includes:
 

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from "react-places-autocomplete";
-import { Form } from "react-bootstrap";
 import '../App.css'
 
 const PlaceAuto = ({ handleSelectAddress, type, initialValue }) => {

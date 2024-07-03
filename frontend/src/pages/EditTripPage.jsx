@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import EditTrip from '../components/editTrip.jsx'
 
 const EditTripPage = () => {
-    const { id } = useParams(); // Get the trip ID from URL parameter
+    const { id } = useParams(); 
     const [trip, setTrip] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -17,7 +17,7 @@ const EditTripPage = () => {
             }
 
             try {
-                const response = await fetch(`http://localhost:5000/plantrip/${id}`); // Fetch the trip details based on ID
+                const response = await fetch(`http://localhost:5000/plantrip/${id}`); 
                 if (!response.ok) {
                     throw new Error('Failed to fetch trip');
                 }

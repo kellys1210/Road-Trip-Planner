@@ -1,4 +1,4 @@
-// CreateTrip.jsx
+
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
@@ -31,7 +31,6 @@ const CreateTrip = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // Check if all required fields are populated
         if (!trip.origin || !trip.destination || !trip.startDate || !trip.endDate) {
             alert("Please fill in all required fields.");
             return;

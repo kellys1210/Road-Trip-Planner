@@ -29,14 +29,14 @@ function SeeTrips() {
 
   const tripDelete = async (id) => {
     try {
-      // Call backend API to delete trip
+
       const response = await fetch(`http://localhost:5000/plantrip/${id}`, {
         method: "DELETE",
       });
       if (!response.ok) {
         throw new Error("Failed to delete trip");
       }
-      // Remove deleted trip from state
+
       setTrips(trips.filter((trip) => trip._id !== id));
     } catch (error) {
       console.error("Error deleting trip:", error.message);

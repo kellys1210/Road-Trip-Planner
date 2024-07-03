@@ -56,9 +56,9 @@ Features
 Features Still to be Implemented
 --------
 
-- **Login
-- **Ability to place waypoints on route
-- **Deployment
+- **Login**
+- **Ability to place waypoints on route**
+- **Deployment**
 
 API Usage
 ---------

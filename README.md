@@ -10,6 +10,7 @@ Table of Contents
 -   [Target Audience](#target-audience)
 -   [How the Project Addresses These Needs](#how-the-project-addresses-these-needs)
 -   [Features](#features)
+-   [Features Still to be Implemented](#features-still-to-be-implemented)
 -   [API Usage](#api-usage)
 -   [Getting Started](#getting-started)
     -   [Prerequisites](#prerequisites)
@@ -55,9 +56,9 @@ Features
 Features Still to be Implemented
 --------
 
-- ** Login
-- ** Ability to place waypoints on route
-- ** Deployment
+- **Login
+- **Ability to place waypoints on route
+- **Deployment
 
 API Usage
 ---------

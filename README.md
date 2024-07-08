@@ -6,9 +6,6 @@ Welcome to the Road Trip Planner App! This application helps users plan and mana
 Table of Contents
 -----------------
 
--   [Business Need](#business-need)
--   [Target Audience](#target-audience)
--   [How the Project Addresses These Needs](#how-the-project-addresses-these-needs)
 -   [Features](#features)
 -   [Features Still to be Implemented](#features-still-to-be-implemented)
 -   [API Usage](#api-usage)
@@ -18,30 +15,6 @@ Table of Contents
     -   [Usage](#usage)
 -   [License](#license)
 
-Business Need
--------------------------------------
-
-In today's fast-paced world, planning road trips can be time-consuming and cumbersome. Travelers need an efficient way to organize their trips, manage their itineraries, and ensure they have the best routes for their journeys. This Road Trip Planner App is designed to streamline this process by providing a user-friendly platform for planning and managing road trips.
-
-Target Audience
--------------------------------------
-
-The target audience for the Road Trip Planner App includes:
-
--   Individuals and families planning vacations or road trips
--   Travel enthusiasts looking for an organized way to manage multiple trips
--   Business professionals needing to plan and manage travel itineraries
--   Anyone who frequently travels by car and seeks a convenient way to organize their trips
-
-How the Project Addresses These Needs
--------------------------------------
-
-The Road Trip Planner App addresses the needs of its target audience by providing the following solutions:
-
--   **Ease of Use:** The app simplifies the process of planning a trip with an intuitive interface for creating, viewing, editing, and deleting trip details.
--   **Efficiency:** Google Places Autocomplete API integration allows for quick and accurate entry of origin and destination locations, reducing the time spent on manual entry.
--   **Route Optimization:** Google Maps API integration displays the best available driving route, helping users save time and fuel.
--   **Comprehensive Trip Management:** Users can manage all aspects of their trip, including departure and arrival dates, in one place, ensuring nothing is overlooked.
 
 Features
 --------
